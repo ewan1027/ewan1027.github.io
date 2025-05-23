@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f6f5f2;
+  --accent: #3c53f5;
+  --text-primary: #000000;
+  --text-secondary: #666666;
+  --card-bg: #ffffff;
+  --border: #e0e0e0;
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--background)] text-[var(--text-primary)] min-h-screen;
+    font-family: var(--font-poppins);
+  }
+}
+
+.poppins-semibold {
+  font-family: var(--font-poppins);
+  font-weight: 600;
+}
+
+.montserrat-thin {
+  font-family: var(--font-montserrat);
+  font-weight: 300;
+}
+
+/* Layout styles */
+.container {
+  @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-[var(--accent)] text-white py-2 px-6 rounded-md hover:opacity-90 transition-opacity;
+}
+
+.btn-outline {
+  @apply bg-transparent text-[var(--accent)] border border-[var(--accent)] py-2 px-6 rounded-md hover:bg-[var(--accent)] hover:text-white transition-colors;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white rounded-lg shadow-md p-6;
+}
+
+/* Landing page specific styles */
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+}
+
+@media (min-width: 768px) {
+  .landing-container {
+    flex-direction: row;
+  }
+
+  .landing-left,
+  .landing-right {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem;
+  }
+}
+
+.landing-left .card {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.landing-right .hero-content h1 {
+  font-size: 100px;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .landing-right .hero-content h1 {
+    font-size: 70px;
+  }
+}
+
+/* Table styles for projects page */
+.table-container {
+  overflow-x: auto;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container th,
+.table-container td {
+  padding: 1rem;
+  text-align: left;
+  border: 1px solid var(--border);
+}
+
+.table-container th {
+  background-color: #f9f9f9;
+}
+
+.table-container tr {
+  background-color: white;
+}
+
+/* Mobile menu styles */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
