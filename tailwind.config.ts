@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  darkMode: ["class"],
+  darkMode: "class", // Enables class-based dark mode
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -15,8 +15,8 @@ const config: Config = {
         montserrat: ["var(--font-montserrat)"],
       },
       colors: {
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
+        background: 'hsl(var(--background))', // Background color for light/dark mode
+        foreground: 'hsl(var(--foreground))', // Text color
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
@@ -57,12 +57,12 @@ const config: Config = {
         }
       },
       borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)'
+        lg: 'var(--radius)', // Custom border radius from variable
+        md: 'calc(var(--radius) - 2px)', // Custom border radius
+        sm: 'calc(var(--radius) - 4px)'  // Custom border radius
       },
       container: {
-        center: true,
+        center: true, // Centers the container
         padding: {
           DEFAULT: '1rem',
           sm: '2rem',
@@ -80,7 +80,7 @@ const config: Config = {
       },
     }
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate")], // Enables the animation plugin
 };
 
 export default config;

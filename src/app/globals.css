@@ -9,6 +9,8 @@
   --text-secondary: #666666;
   --card-bg: #ffffff;
   --border: #e0e0e0;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
 }
 
 .dark {
@@ -18,6 +20,14 @@
   --text-secondary: #cccccc;
   --card-bg: #333333;
   --border: #444444;
+}
+
+/* Body Styles */
+@layer base {
+  body {
+    @apply bg-[var(--background)] text-[var(--text-primary)] min-h-screen;
+    font-family: var(--font-poppins);
+  }
 }
 
 /* Header Styles for Dark Mode */
@@ -43,29 +53,7 @@
   background-color: #f1f1f1; /* White hamburger menu lines */
 }
 
-@layer base {
-  body {
-    @apply bg-[var(--background)] text-[var(--text-primary)] min-h-screen;
-    font-family: var(--font-poppins);
-  }
-}
-
-.poppins-semibold {
-  font-family: var(--font-poppins);
-  font-weight: 600;
-}
-
-.montserrat-thin {
-  font-family: var(--font-montserrat);
-  font-weight: 300;
-}
-
-/* Layout styles */
-.container {
-  @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
-}
-
-/* Button styles */
+/* Button Styles */
 .btn-primary {
   @apply bg-[var(--accent)] text-white py-2 px-6 rounded-md hover:opacity-90 transition-opacity;
 }
@@ -77,6 +65,51 @@
 /* Card styles */
 .card {
   @apply bg-white rounded-lg shadow-md p-6;
+}
+
+.dark .card {
+  @apply bg-[#444444] text-[#f1f1f1] border-[#444444];
+}
+
+.dark .btn-primary {
+  @apply bg-[#3c53f5] text-[#f1f1f1];
+}
+
+.dark .btn-outline {
+  @apply bg-transparent text-[#3c53f5] border-[#3c53f5] hover:bg-[#3c53f5] hover:text-white;
+}
+
+/* Table styles for projects page */
+.table-container {
+  overflow-x: auto;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container th,
+.table-container td {
+  padding: 1rem;
+  text-align: left;
+  border: 1px solid var(--border);
+}
+
+.table-container th {
+  background-color: #f9f9f9;
+}
+
+.table-container tr {
+  background-color: white;
+}
+
+.dark .table-container th {
+  background-color: #333333;
+}
+
+.dark .table-container tr {
+  background-color: #444444;
 }
 
 /* Landing page specific styles */
@@ -118,31 +151,6 @@
   }
 }
 
-/* Table styles for projects page */
-.table-container {
-  overflow-x: auto;
-}
-
-.table-container table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.table-container th,
-.table-container td {
-  padding: 1rem;
-  text-align: left;
-  border: 1px solid var(--border);
-}
-
-.table-container th {
-  background-color: #f9f9f9;
-}
-
-.table-container tr {
-  background-color: white;
-}
-
 /* Mobile menu styles */
 .mobile-menu {
   position: fixed;
@@ -157,27 +165,7 @@
   padding: 2rem;
 }
 
-/* Dark Mode Specific Styles */
-.dark .card {
-  @apply bg-[#444444] text-[#f1f1f1] border-[#444444];
-}
-
-.dark .btn-primary {
-  @apply bg-[#3c53f5] text-[#f1f1f1];
-}
-
-.dark .btn-outline {
-  @apply bg-transparent text-[#3c53f5] border-[#3c53f5] hover:bg-[#3c53f5] hover:text-white;
-}
-
-.dark .landing-left .card {
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
-}
-
-.dark .table-container th {
+.dark .mobile-menu {
   background-color: #333333;
 }
 
-.dark .table-container tr {
-  background-color: #444444;
-}
