@@ -1,7 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+/* Add dark mode colors */
 :root {
   --background: #f6f5f2;
   --accent: #3c53f5;
@@ -11,26 +8,39 @@
   --border: #e0e0e0;
 }
 
-@layer base {
-  body {
-    @apply bg-[var(--background)] text-[var(--text-primary)] min-h-screen;
-    font-family: var(--font-poppins);
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #181818;
+    --accent: #4e89f2;
+    --text-primary: #ffffff;
+    --text-secondary: #aaaaaa;
+    --card-bg: #2d2d2d;
+    --border: #444444;
   }
 }
 
-.poppins-semibold {
+/* Body styles */
+body {
+  @apply bg-[var(--background)] text-[var(--text-primary)] min-h-screen;
   font-family: var(--font-poppins);
-  font-weight: 600;
 }
 
-.montserrat-thin {
-  font-family: var(--font-montserrat);
-  font-weight: 300;
+.card {
+  @apply bg-[var(--card-bg)] rounded-lg shadow-md p-6;
 }
 
-/* Layout styles */
-.container {
-  @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+a {
+  color: var(--text-primary);
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+/* Mobile menu styles */
+.mobile-menu {
+  background-color: var(--card-bg);
+  color: var(--text-primary);
 }
 
 /* Button styles */
@@ -47,7 +57,6 @@
   @apply bg-white rounded-lg shadow-md p-6;
 }
 
-/* Landing page specific styles */
 .landing-container {
   display: flex;
   flex-direction: column;
@@ -111,16 +120,12 @@
   background-color: white;
 }
 
-/* Mobile menu styles */
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: white;
-  z-index: 50;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
+/* Dark Mode Styles */
+.dark {
+  --background: #181818;
+  --accent: #4e89f2;
+  --text-primary: #ffffff;
+  --text-secondary: #aaaaaa;
+  --card-bg: #2d2d2d;
+  --border: #444444;
 }
