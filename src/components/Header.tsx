@@ -1,16 +1,42 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false); // State for dark mode
   const pathname = usePathname();
 
+  // Toggle menu for mobile
   const toggleMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
+
+  // Toggle dark mode
+  const toggleDarkMode = () => {
+    setDarkMode((prev) => !prev);
+  };
+
+  // Persist dark mode state in localStorage and apply dark class to body
+  useEffect(() => {
+    const savedDarkMode = localStorage.getItem("darkMode");
+    if (savedDarkMode === "true") {
+      setDarkMode(true);
+    } else {
+      setDarkMode(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("darkMode", darkMode.toString());
+    if (darkMode) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+  }, [darkMode]);
 
   // Navigation items for easy reuse
   const navItems = [
@@ -26,10 +52,18 @@ export default function Header() {
         {/* Logo/Brand */}
         <div className="brand flex items-center">
           <Link href="/" className="logo flex items-center group">
-            <span className="poppins-semibold text-[22px] md:text-[25px] tracking-tight text-[#222] group-hover:text-[var(--accent)] transition-colors">
+            <span
+              className={`poppins-semibold text-[22px] md:text-[25px] tracking-tight ${
+                darkMode ? "text-white" : "text-[#222]"
+              } group-hover:text-[var(--accent)] transition-colors`}
+            >
               Ewan Dirubut {/* Updated name */}
             </span>
-            <span className="montserrat-thin text-[13px] md:text-[17px] ml-2 text-[#3c53f5] tracking-widest">
+            <span
+              className={`montserrat-thin text-[13px] md:text-[17px] ml-2 ${
+                darkMode ? "text-[#3c53f5]" : "text-[#3c53f5]"
+              } tracking-widest`}
+            >
               | SOFTWARE ENGINEER
             </span>
           </Link>
@@ -58,7 +92,16 @@ export default function Header() {
           </ul>
         </div>
 
-        {/* Hamburger Menu */}
+        {/* Dark Mode Toggle */}
+        <button
+          onClick={toggleDarkMode}
+          className={`p-2 rounded-full transition-colors ${darkMode ? "bg-[#3c53f5] text-white" : "bg-gray-300"}`}
+          aria-label={`Switch to ${darkMode ? "light" : "dark"} mode`}
+        >
+          {darkMode ? "🌙" : "💡"}
+        </button>
+
+        {/* Hamburger Menu for mobile */}
         <button
           className="hamburger md:hidden flex flex-col justify-center items-center w-9 h-9 rounded focus:outline-none relative z-50"
           onClick={toggleMenu}
@@ -70,9 +113,7 @@ export default function Header() {
             }`}
           ></span>
           <span
-            className={`block w-7 h-0.5 bg-black my-1 transition-all duration-300 ${
-              mobileMenuOpen ? "opacity-0" : ""
-            }`}
+            className={`block w-7 h-0.5 bg-black my-1 transition-all duration-300 ${mobileMenuOpen ? "opacity-0" : ""}`}
           ></span>
           <span
             className={`block w-7 h-0.5 bg-black transition-all duration-300 ${
@@ -80,53 +121,6 @@ export default function Header() {
             }`}
           ></span>
         </button>
-
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="mobile-menu fixed inset-0 bg-white/95 z-40 flex flex-col">
-            <div className="flex justify-between items-center px-6 pt-6 pb-2">
-              <Link
-                href="/"
-                className="logo flex items-center"
-                onClick={toggleMenu}
-              >
-                <span className="poppins-semibold text-[22px] tracking-tight text-[#222]">
-                  Ewan Dirubut {/* Updated name */}
-                </span>
-                <span className="montserrat-thin text-[13px] ml-2 text-[#3c53f5] tracking-widest">
-                  | SOFTWARE ENGINEER
-                </span>
-              </Link>
-              <button
-                onClick={toggleMenu}
-                className="text-3xl font-bold text-[#3c53f5] focus:outline-none"
-                aria-label="Close menu"
-              >
-                &times;
-              </button>
-            </div>
-            <ul className="flex flex-col items-center justify-center flex-1 space-y-8 text-xl font-medium">
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className={`transition-colors duration-150 ${
-                      pathname === item.href
-                        ? "text-[var(--accent)]"
-                        : "hover:text-[var(--accent)]"
-                    }`}
-                    style={{
-                      fontWeight: pathname === item.href ? 600 : 400,
-                    }}
-                    onClick={toggleMenu}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
       </nav>
     </header>
   );
