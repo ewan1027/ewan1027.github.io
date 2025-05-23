@@ -6,16 +6,10 @@ import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false); // State for dark mode
   const pathname = usePathname();
 
   const toggleMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
-  };
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    document.documentElement.classList.toggle("dark", !darkMode);
   };
 
   // Navigation items for easy reuse
@@ -63,14 +57,6 @@ export default function Header() {
             ))}
           </ul>
         </div>
-
-        {/* Dark Mode Toggle Button */}
-        <button
-          onClick={toggleDarkMode}
-          className="md:hidden flex justify-center items-center text-2xl"
-        >
-          {darkMode ? "🌙" : "🌞"}
-        </button>
 
         {/* Hamburger Menu */}
         <button
