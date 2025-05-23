@@ -122,6 +122,22 @@ export default function Header() {
           ></span>
         </button>
       </nav>
+
+      {/* Mobile Menu (Conditional Render) */}
+      {mobileMenuOpen && (
+        <div className="mobile-menu fixed inset-0 bg-white flex flex-col items-center pt-10 z-40">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-lg mb-4 text-center font-semibold"
+              onClick={() => setMobileMenuOpen(false)} // Close the menu when clicking on a link
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      )}
     </header>
   );
 }
