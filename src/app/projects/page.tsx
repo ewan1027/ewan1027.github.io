@@ -16,7 +16,7 @@ export default function Projects() {
 
           <div className="overflow-x-auto">
             <table className="min-w-full border-collapse">
-              <thead className="bg-white">
+              <thead className="bg-white dark:bg-[#333333]">
                 <tr className="border border-[var(--border)]">
                   <th className="p-4 text-left">Project Number</th>
                   <th className="p-4 text-left">Project Name</th>
@@ -26,7 +26,7 @@ export default function Projects() {
               </thead>
               <tbody>
                 {/* Autonomous Line-Following Luggage Transporter Robot */}
-                <tr className="border border-[var(--border)] bg-white">
+                <tr className="border border-[var(--border)] bg-white dark:bg-[#444444]">
                   <td className="p-4">1</td>
                   <td className="p-4 font-semibold">Autonomous Line-Following Luggage Transporter Robot 🧳🤖</td>
                   <td className="p-4">
@@ -61,7 +61,7 @@ export default function Projects() {
                 </tr>
 
                 {/* Modern Room Clothing Website */}
-                <tr className="border border-[var(--border)] bg-white">
+                <tr className="border border-[var(--border)] bg-white dark:bg-[#444444]">
                   <td className="p-4">2</td>
                   <td className="p-4 font-semibold">Modern Room Clothing Website | Front-End</td>
                   <td className="p-4">
@@ -102,7 +102,7 @@ export default function Projects() {
                 </tr>
 
                 {/* Urban Food E-Commerce Platform */}
-                <tr className="border border-[var(--border)] bg-white">
+                <tr className="border border-[var(--border)] bg-white dark:bg-[#444444]">
                   <td className="p-4">3</td>
                   <td className="p-4 font-semibold">Urban Food E-Commerce Platform</td>
                   <td className="p-4">
