@@ -57,7 +57,7 @@ export default function Header() {
                 darkMode ? "text-white" : "text-[#222]"
               } group-hover:text-[var(--accent)] transition-colors`}
             >
-              Ewan Dirubut {/* Updated name */}
+              Ewan Dirubut
             </span>
             <span
               className={`montserrat-thin text-[13px] md:text-[17px] ml-2 ${
@@ -108,17 +108,13 @@ export default function Header() {
           aria-label="Open menu"
         >
           <span
-            className={`block w-7 h-0.5 bg-black transition-all duration-300 ${
-              mobileMenuOpen ? "rotate-45 translate-y-2" : ""
-            }`}
+            className={`block w-7 h-0.5 bg-black transition-all duration-300 ${mobileMenuOpen ? "rotate-45 translate-y-2" : ""}`}
           ></span>
           <span
             className={`block w-7 h-0.5 bg-black my-1 transition-all duration-300 ${mobileMenuOpen ? "opacity-0" : ""}`}
           ></span>
           <span
-            className={`block w-7 h-0.5 bg-black transition-all duration-300 ${
-              mobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
-            }`}
+            className={`block w-7 h-0.5 bg-black transition-all duration-300 ${mobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`}
           ></span>
         </button>
       </nav>

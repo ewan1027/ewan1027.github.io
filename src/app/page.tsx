@@ -67,7 +67,7 @@ export default function Home() {
         <div className="landing-right w-full md:w-1/2 p-6 md:p-10 flex justify-center items-center">
           <div className="about-me max-w-xl">
             <div className="hero-content">
-              <h1 className="poppins-semibold text-6xl md:text-8xl mb-2">Hello</h1>
+              <h1 className="poppins-semibold text-6xl md:text-8xl mb-2">Hello!</h1> {/* Updated text */}
               <p className="montserrat-thin text-2xl mb-6">Here's who I am</p>
 
               <div className="flex gap-4 mb-8">
@@ -85,9 +85,18 @@ export default function Home() {
               <p className="montserrat-thin text-lg mb-4">
                 I enjoy working on both front-end and back-end projects and am constantly learning and applying new skills.
               </p>
-              <p className="montserrat-thin text-lg">
+              <p className="montserrat-thin text-lg mb-4">
                 Outside of coding, I love reading and exploring emerging tech, as well as improving my communication skills, demonstrated through my success in the Provincial English Language Competition.
               </p>
+
+              {/* New Hover Button that links to Contact page */}
+              <div className="mt-8">
+                <Link href="/contact">
+                  <button className="btn-hover-stylish">
+                    Say Hello!
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
