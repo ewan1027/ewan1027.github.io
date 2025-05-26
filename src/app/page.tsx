@@ -34,7 +34,7 @@ export default function Home() {
                 />
               </a>
               <a
-                href="https://www.linkedin.com/in/EwanDirubut/"
+                href="https://www.linkedin.com/in/ewan-dirubut-90a92931a/"
                 className="contact-link"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -47,7 +47,7 @@ export default function Home() {
                 />
               </a>
               <a
-                href="https://github.com/EwanDirubut"
+                href="https://github.com/ewan1027"
                 className="contact-link"
                 target="_blank"
                 rel="noopener noreferrer"
