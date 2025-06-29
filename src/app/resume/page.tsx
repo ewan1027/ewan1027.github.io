@@ -195,7 +195,7 @@ export default function Resume() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="md:col-span-1">
                 <div className="mb-2">
-                  <h3 className="text-[var(--accent)] poppins-semibold text-xl">2020</h3>
+                  <h3 className="text-[var(--accent)] poppins-semibold text-xl">2015</h3>
                   <p className="font-semibold">KM/Wesly High School</p>
                   <p className="text-sm">G.C.E. Ordinary Level (O-Level)</p>
                 </div>
